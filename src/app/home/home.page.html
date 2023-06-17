@@ -14,7 +14,30 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <img [src]="getPhoto()" style="width: 400px; height: 400px;" *ngIf="photo === true" >
+    <ion-button (click)="takePicture()">
+      Camara
+      <ion-icon slot="end" name="cameraS"></ion-icon>
+    </ion-button>
+    <ion-button (click)="fetchLocation()">
+      Ubicación
+      <ion-icon slot="end" name="location"></ion-icon>
+    </ion-button>    <br>
+    <div  *ngIf="coords === true" >
+      <ion-grid>
+        <ion-row>
+          <ion-col>Latitud</ion-col>
+          <ion-col>Longitud</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{coordenadasLatitud}}</ion-col>
+          <ion-col>{{coordenadasLongitud}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      </div>
+
+    </div>
 </ion-content>
